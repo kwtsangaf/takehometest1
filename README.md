@@ -1,8 +1,18 @@
 # Takehometest1
 
+## Get Started
+refer to package.json
+run
+```npm run:start```
+to start the program
+
+## Details
+- this project is bases on [nx](https://nx.dev/)
+- use [MUI](https://mui.com/) as the layout library
 
 ## Improvements
 - may extract all the api url into 1 separate file if needed in the future
+- can have the CICD to automatically build and deploy to the destination once merged into the master branch
 
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
