@@ -7,7 +7,7 @@ run
 to start the program
 
 ## Details
-- this project is bases on [nx](https://nx.dev/)
+- this project is based on [nx](https://nx.dev/)
 - use [MUI](https://mui.com/) as the layout library
 - MUI caters for the UI responsiveness
 - only load first 10 elements for each table to speed up the UI rendering
