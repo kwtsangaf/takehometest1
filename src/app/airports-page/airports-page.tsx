@@ -28,7 +28,7 @@ export function AirportsPage(props: AirportsPageProps) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.features.map((row, index) => (
+                    {data.features.slice(0, 10).map((row, index) => (
                         <TableRow
                             key={row.type + index}
                             sx={{"&:last-child td, &:last-child th": {border: 0}}}

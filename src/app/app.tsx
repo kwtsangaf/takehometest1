@@ -19,13 +19,6 @@ export function App() {
             </Routes>
         </BrowserRouter>
     );
-  // return (
-  //   <>
-  //       <AirportsPage></AirportsPage>
-  //     <NxWelcome title="takehometest1" />
-  //     <div />
-  //   </>
-  // );
 }
 
 export default App;

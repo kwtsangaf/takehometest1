@@ -27,13 +27,13 @@ export function SuaPage(props: SuaPageProps) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.features.map((row, index) => (
+                    {data.features.slice(0, 10).map((row, index) => (
                         <TableRow
                             key={row.type + index}
                             sx={{"&:last-child td, &:last-child th": {border: 0}}}
                         >
                             <TableCell align="right">{row?.geometry.type}</TableCell>
-                            <TableCell align="right">{row?.geometry.coordinates}</TableCell>
+                            <TableCell align="right">{row?.geometry.coordinates.slice(0, 3)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
