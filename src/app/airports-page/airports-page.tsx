@@ -31,7 +31,7 @@ export function AirportsPage(props: AirportsPageProps) {
     }, []);
     return (
         <>
-            <MapModal open={open} geojson={geojson} mapType={"point"} origin={origin}
+            <MapModal open={open} geojson={geojson} locationType={"airport"} origin={origin}
                       handleClose={handleClose}></MapModal>
             <TableContainer component={Paper}>
                 <Table sx={{minWidth: 650}} aria-label="simple table">

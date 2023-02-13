@@ -3,12 +3,14 @@ import {Box, Button, Modal, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import Map, {Layer, Source} from "react-map-gl";
 
+export type LocationType = "airport" | "stadium" | "sua";
+
 /* eslint-disable-next-line */
 export interface MapModalProps {
     open: boolean;
     handleClose: any;
     geojson: any;
-    mapType: string;
+    locationType: LocationType;
     origin: number[];
 }
 
@@ -45,6 +47,32 @@ const geojson2: any = {
                 [-67.13734351262877, 45.137451890638886]
             ]
         ]
+    }
+};
+
+const layerStyles: any = {
+    airport: {
+        id: "point",
+        type: "circle",
+        paint: {
+            "circle-radius": 10,
+            "circle-color": "#0026bf"
+        }
+    },
+    stadium: {
+        id: "point",
+        type: "circle",
+        paint: {
+            "circle-radius": 10,
+            "circle-color": "#0026bf"
+        }
+    },
+    sua: {
+        "id": "water",
+        "type": "fill",
+        "paint": {
+            "fill-color": "#00ffff"
+        }
     }
 };
 
@@ -96,7 +124,7 @@ export function MapModal(props: MapModalProps) {
                     mapboxAccessToken={token}
                 >
                     <Source id="my-data" type="geojson" data={props.geojson}>
-                        <Layer {...(props.mapType === "point" ? pointLayerStyle : polygonLayerStyle)} />
+                        <Layer {...layerStyles[props.locationType]} />
                     </Source>
                 </Map>
             </Modal>
