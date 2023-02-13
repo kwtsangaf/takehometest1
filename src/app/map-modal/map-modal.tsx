@@ -117,7 +117,7 @@ export function MapModal(props: MapModalProps) {
                     initialViewState={{
                         longitude: (props.origin != null) ? props.origin[0] : 0,
                         latitude: (props.origin != null) ? props.origin[1] : 0,
-                        zoom: 12
+                        zoom: 8
                     }}
                     style={{width: 600, height: 400}}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
