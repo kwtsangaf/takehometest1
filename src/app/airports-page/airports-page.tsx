@@ -11,10 +11,12 @@ export interface AirportsPageProps {
 
 export function AirportsPage(props: AirportsPageProps) {
     const [open, setOpen] = useState(false);
-    const [count, setCounter] = useState(0);
-    const handleOpen = () => {
+    const [geojson, setGeojson] = useState(null);
+    const [origin, setOrigin] = useState([0, 0]);
+    const openMapModal = (row: any) => {
         setOpen(true);
-        setCounter(count+1);
+        setGeojson(row);
+        setOrigin(row.geometry.coordinates);
     };
     const handleClose = () => setOpen(false);
 
@@ -29,7 +31,8 @@ export function AirportsPage(props: AirportsPageProps) {
     }, []);
     return (
         <>
-            <MapModal open={open} count={count} handleClose={handleClose}></MapModal>
+            <MapModal open={open} geojson={geojson} mapType={"point"} origin={origin}
+                      handleClose={handleClose}></MapModal>
             <TableContainer component={Paper}>
                 <Table sx={{minWidth: 650}} aria-label="simple table">
                     <TableHead>
@@ -47,7 +50,8 @@ export function AirportsPage(props: AirportsPageProps) {
                             >
                                 <TableCell align="right">{row?.geometry.type}</TableCell>
                                 <TableCell align="right">{row?.geometry.coordinates}</TableCell>
-                                <TableCell align="right"><Button variant="outlined" onClick={handleOpen}>Details</Button></TableCell>
+                                <TableCell align="right"><Button variant="outlined"
+                                                                 onClick={() => openMapModal(row)}>Details</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

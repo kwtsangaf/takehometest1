@@ -3,39 +3,19 @@ import {Box, Button, Modal, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import Map, {Layer, Source} from "react-map-gl";
 
-const style = {
-    position: "absolute" as const,
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-};
-
 /* eslint-disable-next-line */
 export interface MapModalProps {
     open: boolean;
     handleClose: any;
-    count: number;
+    geojson: any;
+    mapType: string;
+    origin: number[];
 }
-
 
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const token = import.meta.env.VITE_MAPBOX_TOKEN;
-
-const geojson: any = {
-    type: "FeatureCollection",
-    features: [
-        {type: "Feature", geometry: {type: "Point", coordinates: [-122.4, 37.8]}},
-        {type: "Feature", geometry: {type: "Point", coordinates: [-122.41, 37.8]}},
-        {type: "Feature", geometry: {type: "Point", coordinates: [-122.4, 37.805]}}
-    ]
-};
 
 const geojson2: any = {
     "type": "Feature",
@@ -68,33 +48,22 @@ const geojson2: any = {
     }
 };
 
-const parkLayer: any = {
-    id: 'landuse_park',
-    type: 'fill',
-    source: 'mapbox',
-    'source-layer': 'landuse',
-    filter: ['==', 'class', 'park'],
-    paint: {
-        'fill-color': '#4E3FC8'
-    }
-};
-
-const layerStyle: any = {
+const pointLayerStyle: any = {
     id: "point",
     type: "circle",
     paint: {
         "circle-radius": 10,
-        "circle-color": "#49bf00"
+        "circle-color": "#0026bf"
     }
 };
 
-const layerStyle2: any = {
+const polygonLayerStyle: any = {
     "id": "water",
     "type": "fill",
     "paint": {
         "fill-color": "#00ffff"
     }
-}
+};
 
 
 export function MapModal(props: MapModalProps) {
@@ -118,16 +87,16 @@ export function MapModal(props: MapModalProps) {
             >
                 <Map
                     initialViewState={{
-                        longitude: -122.4,
-                        latitude: 37.8,
-                        zoom: 4
+                        longitude: (props.origin != null) ? props.origin[0] : 0,
+                        latitude: (props.origin != null) ? props.origin[1] : 0,
+                        zoom: 12
                     }}
                     style={{width: 600, height: 400}}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
                     mapboxAccessToken={token}
                 >
-                    <Source id="my-data" type="geojson" data={geojson}>
-                        <Layer {...layerStyle} />
+                    <Source id="my-data" type="geojson" data={props.geojson}>
+                        <Layer {...(props.mapType === "point" ? pointLayerStyle : polygonLayerStyle)} />
                     </Source>
                 </Map>
             </Modal>
