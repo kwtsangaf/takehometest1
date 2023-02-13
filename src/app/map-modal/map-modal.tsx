@@ -64,14 +64,14 @@ const layerStyles: any = {
         type: "circle",
         paint: {
             "circle-radius": 10,
-            "circle-color": "#0026bf"
+            "circle-color": "#0dbf00"
         }
     },
     sua: {
         "id": "water",
         "type": "fill",
         "paint": {
-            "fill-color": "#00ffff"
+            "fill-color": "#fff200"
         }
     }
 };
