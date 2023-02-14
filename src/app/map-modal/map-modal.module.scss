@@ -5,3 +5,23 @@
  * .container {
  * }
 */
+.map-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+.map-inner-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-self: center;
+  position: relative;
+  width: 100%;
+}
+
+.cross-button {
+  position: absolute !important;
+  top: 0;
+}
