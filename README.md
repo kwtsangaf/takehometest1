@@ -2,13 +2,13 @@
 This project is to show different places on the map
 
 # Prerequisite
-Please register in [mapbox](https://www.mapbox.com/) and get the api token. Then, referring to `.env.example`, create `.env` file inside the root folder and put the token inside.
+- Please register in [mapbox](https://www.mapbox.com/) to get the api token. Then, referring to `.env.example`, create `.env` file inside the root folder and put the token inside.
+- Have [nx](https://nx.dev/) in the local computer. The project is built on the version is 15.6.3
 
 ## Get Started
-refer to package.json.
-run
+```npm i```
+
 ```npm run start```
-to start the program
 
 ## Details
 - this project is based on [nx](https://nx.dev/)
