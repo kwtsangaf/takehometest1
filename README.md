@@ -1,9 +1,13 @@
 # Takehometest1
+This project is to show different places on the map
+
+# Prerequisite
+Please register in [mapbox](https://www.mapbox.com/) and get the api token. Then, referring to `.env.example`, create `.env` file inside the root folder and put the token inside.
 
 ## Get Started
-refer to package.json
+refer to package.json.
 run
-```npm run:start```
+```npm run start```
 to start the program
 
 ## Details
@@ -11,6 +15,7 @@ to start the program
 - use [MUI](https://mui.com/) as the layout library
 - MUI caters for the UI responsiveness
 - only load first 10 elements for each table to speed up the UI rendering
+- trimmed the coordinates of some pages for faster UI rendering
 - test is included for the data loading service
 
 
